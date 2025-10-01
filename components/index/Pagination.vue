@@ -6,7 +6,7 @@
 			:class="{ disabled: currentPage <= 1 }"
 			@click="handlePrevPage"
 		>
-			<text class="nav-text">上一页</text>
+			<text class="nav-text">上</text>
 		</view>
 		
 		<!-- 当前页显示 -->
@@ -22,7 +22,7 @@
 			:class="{ disabled: currentPage >= totalPages }"
 			@click="handleNextPage"
 		>
-			<text class="nav-text">下一页</text>
+			<text class="nav-text">下</text>
 		</view>
 		
 		<!-- 页数输入和跳转 -->
@@ -98,11 +98,12 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		gap: 8rpx;
-		padding: 20rpx;
+		gap: 6rpx;
+		padding: 12rpx 16rpx;
 		background-color: #fff;
 		border-top: 1rpx solid #eee;
-		flex-wrap: wrap;
+		flex-wrap: nowrap;
+		white-space: nowrap;
 	}
 	
 	/* 页数信息显示 */
@@ -110,33 +111,33 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding: 0 20rpx;
-		min-width: 120rpx;
+		padding: 0 12rpx;
+		min-width: 80rpx;
 	}
 	
 	.current-page-text {
-		font-size: 28rpx;
+		font-size: 26rpx;
 		font-weight: bold;
 		color: #d4af37;
 	}
 	
 	.page-separator {
-		font-size: 24rpx;
+		font-size: 22rpx;
 		color: #999;
-		margin: 0 8rpx;
+		margin: 0 4rpx;
 	}
 	
 	.total-pages-text {
-		font-size: 24rpx;
+		font-size: 22rpx;
 		color: #666;
 	}
 	
 	/* 导航按钮样式 */
 	.nav-button {
-		min-width: 80rpx;
-		height: 60rpx;
-		padding: 0 16rpx;
-		border-radius: 8rpx;
+		min-width: 50rpx;
+		height: 50rpx;
+		padding: 0 8rpx;
+		border-radius: 6rpx;
 		background-color: #fff;
 		border: 1rpx solid #ddd;
 		display: flex;
@@ -162,7 +163,7 @@
 	}
 	
 	.nav-text {
-		font-size: 24rpx;
+		font-size: 22rpx;
 		font-weight: 500;
 		color: #333;
 		white-space: nowrap;
@@ -176,17 +177,17 @@
 	.page-input-container {
 		display: flex;
 		align-items: center;
-		margin-left: 20rpx;
-		gap: 8rpx;
+		margin-left: 12rpx;
+		gap: 6rpx;
 	}
 	
 	.page-input {
-		width: 80rpx;
-		height: 60rpx;
+		width: 60rpx;
+		height: 50rpx;
 		border: 1rpx solid #ddd;
-		border-radius: 8rpx;
+		border-radius: 6rpx;
 		text-align: center;
-		font-size: 24rpx;
+		font-size: 22rpx;
 		background-color: #fff;
 	}
 	
@@ -196,10 +197,10 @@
 	}
 	
 	.jump-button {
-		height: 60rpx;
-		padding: 0 16rpx;
+		height: 50rpx;
+		padding: 0 12rpx;
 		background-color: #d4af37;
-		border-radius: 8rpx;
+		border-radius: 6rpx;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -212,7 +213,7 @@
 	}
 	
 	.jump-text {
-		font-size: 24rpx;
+		font-size: 22rpx;
 		color: #fff;
 		font-weight: 500;
 	}

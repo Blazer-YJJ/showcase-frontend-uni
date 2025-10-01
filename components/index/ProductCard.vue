@@ -10,7 +10,6 @@
 		</view>
 		<view class="card-content">
 			<text class="product-title">{{ product.title }}</text>
-			<text class="weight-info">{{ product.weight }}</text>
 			<view class="card-footer">
 				<text class="product-price">¥{{ product.price }}</text>
 				<view class="product-tag">
@@ -57,6 +56,10 @@
 		overflow: hidden;
 		box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.1);
 		margin-bottom: 20rpx;
+		/* 固定卡片高度，确保一致性 */
+		height: 320rpx;
+		display: flex;
+		flex-direction: column;
 	}
 	
 	.card-image {
@@ -75,22 +78,23 @@
 	
 	.card-content {
 		padding: 20rpx;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 	}
 	
 	.product-title {
 		font-size: 28rpx;
 		font-weight: bold;
 		color: #333;
-		margin-bottom: 10rpx;
-		display: block;
-		line-height: 1.3;
-	}
-	
-	.weight-info {
-		font-size: 24rpx;
-		color: #666;
 		margin-bottom: 15rpx;
 		display: block;
+		line-height: 1.3;
+		/* 单行显示，超出省略 */
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 	
 	.card-footer {
