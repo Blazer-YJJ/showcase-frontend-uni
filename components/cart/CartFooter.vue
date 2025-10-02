@@ -165,6 +165,9 @@ export default {
   border-radius: 8rpx;
   padding: 16rpx 32rpx;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .delete-btn:active {
@@ -180,6 +183,7 @@ export default {
   color: #fff;
   font-size: 26rpx;
   font-weight: 500;
+  line-height: 1;
 }
 
 .delete-btn.disabled .delete-text {
