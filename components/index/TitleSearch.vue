@@ -23,12 +23,35 @@
 				<image class="image-search-icon" src="/static/icons/xj.png" mode="aspectFit"></image>
 			</view>
 		</view>
+		
+		<!-- 搜索结果弹窗 -->
+		<SearchResultModal 
+			:visible="showSearchModal"
+			:searchKeyword="searchValue"
+			:searchResults="searchResults"
+			@close="handleCloseSearchModal"
+			@productClick="handleProductClick"
+		/>
+		
+		<!-- 以图搜图弹窗 -->
+		<ImageSearchModal 
+			:visible="showImageSearchModal"
+			@close="handleCloseImageSearchModal"
+			@productClick="handleProductClick"
+		/>
 	</view>
 </template>
 
 <script>
+	import SearchResultModal from './SearchResultModal.vue'
+	import ImageSearchModal from './ImageSearchModal.vue'
+	
 	export default {
 		name: 'TitleSearch',
+		components: {
+			SearchResultModal,
+			ImageSearchModal
+		},
 		props: {
 			title: {
 				type: String,
@@ -41,20 +64,115 @@
 		},
 		data() {
 			return {
-				searchValue: ''
+				searchValue: '',
+				showSearchModal: false,
+				showImageSearchModal: false,
+				searchResults: []
 			}
 		},
 		methods: {
 			handleSearch() {
 				if (this.searchValue.trim()) {
-					this.$emit('search', this.searchValue.trim())
+					// 执行搜索逻辑
+					this.performSearch(this.searchValue.trim())
+					// 显示搜索结果弹窗
+					this.showSearchModal = true
+				} else {
+					uni.showToast({
+						title: '请输入搜索关键词',
+						icon: 'none'
+					})
 				}
 			},
+			
 			handleInputChange(e) {
 				this.searchValue = e.detail.value
 			},
+			
 			handleImageSearch() {
-				this.$emit('imageSearch')
+				// 显示以图搜图弹窗
+				this.showImageSearchModal = true
+			},
+			
+			// 执行搜索功能
+			performSearch(keyword) {
+				// 模拟搜索数据 - 实际项目中这里应该调用API
+				const mockProducts = [
+					{
+						id: 1,
+						name: '经典黄金项链',
+						category: '项链',
+						description: '采用18K黄金制作，经典简约设计，适合日常佩戴',
+						price: 2580,
+						image: '/static/images/001.png',
+						tag: '热销'
+					},
+					{
+						id: 2,
+						name: '钻石手镯',
+						category: '手镯',
+						description: '镶嵌精美钻石，工艺精湛，彰显优雅气质',
+						price: 5680,
+						image: '/static/images/002.png',
+						tag: '新品'
+					},
+					{
+						id: 3,
+						name: '珍珠戒指',
+						category: '戒指',
+						description: '天然珍珠制作，温润如玉，展现女性柔美',
+						price: 1280,
+						image: '/static/images/003.png',
+						tag: '推荐'
+					},
+					{
+						id: 4,
+						name: '翡翠吊坠',
+						category: '吊坠',
+						description: '上等翡翠材质，雕工精美，寓意吉祥如意',
+						price: 8880,
+						image: '/static/images/004.png',
+						tag: '限量'
+					},
+					{
+						id: 5,
+						name: '银质耳环',
+						category: '耳环',
+						description: '纯银制作，简约时尚，适合各种场合佩戴',
+						price: 680,
+						image: '/static/images/001.png',
+						tag: '特价'
+					}
+				]
+				
+				// 根据关键词过滤商品
+				this.searchResults = mockProducts.filter(product => 
+					product.name.includes(keyword) || 
+					product.category.includes(keyword) ||
+					product.description.includes(keyword)
+				)
+				
+				console.log('搜索关键词:', keyword)
+				console.log('搜索结果:', this.searchResults)
+			},
+			
+			// 关闭搜索弹窗
+			handleCloseSearchModal() {
+				this.showSearchModal = false
+			},
+			
+			// 关闭以图搜图弹窗
+			handleCloseImageSearchModal() {
+				this.showImageSearchModal = false
+			},
+			
+			// 商品点击事件
+			handleProductClick(product) {
+				this.$emit('productClick', product)
+				uni.showToast({
+					title: `查看${product.name}`,
+					icon: 'none'
+				})
 			}
 		}
 	}
@@ -132,8 +250,8 @@
 	}
 	
 	.image-search-btn {
-		background-color: #f8f9fa;
-		border: 1rpx solid #e9ecef;
+		background-color: #d4af37;
+		border: 1rpx solid #d4af37;
 		border-radius: 20rpx;
 		padding: 8rpx 12rpx;
 		display: flex;

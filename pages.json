@@ -1,12 +1,5 @@
 {
-	"pages": [
-		{
-			"path": "pages/member/member",
-			"style": {
-				"navigationBarTitleText": "会员中心"
-			}
-		},
-		{
+	"pages": [{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "首页"
@@ -22,6 +15,12 @@
 			"path": "pages/cart/cart",
 			"style": {
 				"navigationBarTitleText": "购物车"
+			}
+		},
+		{
+			"path": "pages/member/member",
+			"style": {
+				"navigationBarTitleText": "会员中心"
 			}
 		}
 	],

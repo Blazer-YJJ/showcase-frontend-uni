@@ -3,7 +3,8 @@
 		<!-- 标题搜索栏 -->
 		<TitleSearch 
 			@search="handleSearch" 
-			@goToProfile="handleGoToProfile" 
+			@goToProfile="handleGoToProfile"
+			@productClick="handleProductClick"
 		/>
 
 		<!-- 快捷入口区 -->
@@ -58,12 +59,10 @@
 		console.log('组件列表:', Object.keys(this.$options.components))
 	},
 		methods: {
-			handleSearch() {
-				console.log('执行搜索操作')
-				uni.showToast({
-					title: '搜索功能',
-					icon: 'none'
-				})
+			handleSearch(searchKeyword) {
+				console.log('执行搜索操作:', searchKeyword)
+				// 搜索功能现在由 TitleSearch 组件内部处理
+				// 这里可以添加额外的搜索逻辑，比如记录搜索历史等
 			},
 			handleGoToProfile() {
 				console.log('跳转到用户中心')
