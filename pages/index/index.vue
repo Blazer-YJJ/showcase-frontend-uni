@@ -31,6 +31,12 @@
 </template>
 
 <script>
+	// 引用快捷入口相关页面，确保微信小程序代码依赖分析能正确识别
+	// import ExplorePage from './explore.vue'
+	// import RankingPage from './ranking.vue'
+	// import ActivityPage from './activity.vue'
+	// import FavoritesPage from './favorites.vue'
+	
 	import TitleSearch from '@/components/index/TitleSearch.vue'
 	import QuickEntry from '@/components/index/QuickEntry.vue'
 	import InfoBanner from '@/components/index/InfoBanner.vue'
@@ -72,10 +78,8 @@
 			},
 			handleQuickAccessClick(item) {
 				console.log('快捷入口点击:', item)
-				uni.showToast({
-					title: `点击了${item.label}`,
-					icon: 'none'
-				})
+				// 跳转逻辑现在由QuickEntry组件内部处理
+				// 这里可以添加额外的逻辑，比如统计点击次数等
 			},
 			handleBannerClick(bannerData) {
 				console.log('横幅点击:', bannerData)

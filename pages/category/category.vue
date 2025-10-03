@@ -630,7 +630,6 @@
 		left: 200rpx; /* 在固定侧边栏右侧 */
 		right: 0;
 		background: #fff;
-		border-bottom: 2rpx solid #e9ecef;
 		box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
 		z-index: 99;
 		padding: 0 20rpx;
@@ -643,7 +642,6 @@
 		left: 200rpx; /* 在固定侧边栏右侧 */
 		right: 0;
 		background: #fff;
-		border-bottom: 2rpx solid #e9ecef;
 		box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
 		z-index: 99;
 		padding: 20rpx;

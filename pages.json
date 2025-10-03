@@ -6,6 +6,30 @@
 			}
 		},
 		{
+			"path": "pages/index/explore",
+			"style": {
+				"navigationBarTitleText": "精选探索"
+			}
+		},
+		{
+			"path": "pages/index/ranking",
+			"style": {
+				"navigationBarTitleText": "主推款式"
+			}
+		},
+		{
+			"path": "pages/index/activity",
+			"style": {
+				"navigationBarTitleText": "限时活动"
+			}
+		},
+		{
+			"path": "pages/index/favorites",
+			"style": {
+				"navigationBarTitleText": "最多收藏"
+			}
+		},
+		{
 			"path": "pages/category/category",
 			"style": {
 				"navigationBarTitleText": "分类"
